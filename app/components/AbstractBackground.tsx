@@ -1,0 +1,69 @@
+"use client";
+import React, { useEffect, useState } from 'react';
+
+// The 10 distinct SVG paths from the RIGEL logo
+const basePaths = [
+  "M69.3118 154.293C97.3584 66.7877 127.088 37.0583 158.5 65.1049C189.912 93.1515 219.642 122.881 247.688 154.293C219.642 185.705 189.912 215.435 158.5 243.481C127.088 215.435 97.3584 185.705 69.3118 154.293Z",
+  "M94.5538 154.293C137.185 78.0062 179.815 78.0062 222.446 154.293C179.815 230.58 137.185 230.58 94.5538 154.293Z",
+  "M52.4839 107.175C123.161 39.863 193.839 39.863 264.516 107.175C193.839 230.58 123.161 230.58 52.4839 107.175Z",
+  "M77.7258 73.5189C131.575 17.4257 185.425 17.4257 239.274 73.5189C185.425 237.311 131.575 237.311 77.7258 73.5189Z",
+  "M111.382 23.0349C142.794 -5.01165 174.206 -5.01165 205.618 23.0349C174.206 226.092 142.794 226.092 111.382 23.0349Z",
+  "M94.5538 191.314C137.185 213.752 179.815 213.752 222.446 191.314C179.815 62.3001 137.185 62.3001 94.5538 191.314Z",
+  "M52.4839 199.729C123.161 250.212 193.839 250.212 264.516 199.729C193.839 88.664 123.161 88.664 52.4839 199.729Z",
+  "M35.6559 154.293C117.552 268.723 199.448 268.723 281.344 154.293C199.448 39.8629 117.552 39.8629 35.6559 154.293Z",
+  "M18.8279 154.293C111.943 279.942 205.057 279.942 298.172 154.293C205.057 28.6442 111.943 28.6442 18.8279 154.293Z",
+  "M2 154.293C106.333 291.16 210.667 291.16 315 154.293C210.667 17.4257 106.333 17.4257 2 154.293Z",
+];
+
+// Generate 40 random layers to fill the background
+function generateLayers() {
+  const generated = [];
+  for (let i = 0; i < 40; i++) {
+    // Pick a random path
+    const d = basePaths[Math.floor(Math.random() * basePaths.length)];
+    // Randomize position (using vh/vw to cover whole screen)
+    const top = Math.floor(Math.random() * 120) - 10; // -10% to 110%
+    const left = Math.floor(Math.random() * 120) - 10; // -10% to 110%
+    // Randomize scale
+    const scale = (Math.random() * 3) + 1.5; // 1.5 to 4.5
+    // Randomize rotation
+    const rotate = Math.floor(Math.random() * 360);
+    // Randomize opacity
+    const opacity = (Math.random() * 0.4) + 0.1; // 0.1 to 0.5
+    
+    generated.push({ d, top: `${top}vh`, left: `${left}vw`, scale, rotate, opacity });
+  }
+  return generated;
+}
+
+export default function AbstractBackground() {
+  const [layers, setLayers] = useState<{ d: string; top: string; left: string; scale: number; rotate: number; opacity: number }[]>([]);
+
+  useEffect(() => {
+    // Generate only on client to avoid hydration mismatch
+    setLayers(generateLayers());
+  }, []);
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: -1, overflow: 'hidden', pointerEvents: 'none', background: '#2A2525' }}>
+      {layers.map((layer, i) => (
+        <svg
+          key={i}
+          width="317"
+          height="259"
+          viewBox="0 0 317 259"
+          fill="none"
+          style={{
+            position: 'absolute',
+            left: layer.left,
+            top: layer.top,
+            transform: `scale(${layer.scale}) rotate(${layer.rotate}deg)`,
+            opacity: layer.opacity,
+          }}
+        >
+          <path d={layer.d} stroke="#433d3d" strokeWidth="0.5" strokeLinecap="round" fill="none" />
+        </svg>
+      ))}
+    </div>
+  );
+}
