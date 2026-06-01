@@ -25,7 +25,13 @@ export const docsContent = [
     id: "installation",
     title: "Installation",
     html: `
-      <p>To run RIGEL natively on Linux without Docker, follow these steps:</p>
+      <h3>Automated Installation (Recommended)</h3>
+      <p>The easiest way to get RIGEL up and running is with the automated install script. It sets up the Docker container, handles all dependencies, and configures everything for you — no manual steps required:</p>
+      <pre><code>curl -fsSL https://raw.githubusercontent.com/Zerone-Laboratories/RIGEL/main/install-rigel-engine.sh | sudo -E bash</code></pre>
+      <p>This single command will pull the Docker image, start the RIGEL container, and configure it with sensible defaults. You'll be ready to use RIGEL immediately after it completes.</p>
+
+      <h3>Manual Native Installation</h3>
+      <p>If you prefer to run RIGEL natively on Linux without Docker, follow these steps:</p>
       <ol>
         <li><strong>Clone the repository:</strong>
           <pre><code>git clone https://github.com/Zerone-Laboratories/RIGEL
@@ -57,7 +63,12 @@ ollama pull llama3.2</code></pre>
     id: "quick-start",
     title: "Quick Start",
     html: `
-      <p>RIGEL offers two server modes to suit different use cases and environments:</p>
+      <p>RIGEL offers two server modes to suit different use cases and environments.</p>
+
+      <div class="note">
+        <strong>Already used the automated install script?</strong> If you ran <code>curl -fsSL https://raw.githubusercontent.com/Zerone-Laboratories/RIGEL/main/install-rigel-engine.sh | sudo -E bash</code>, your RIGEL container is already running with autoconfiguration — you can skip the manual steps below and start using RIGEL right away.
+      </div>
+
       <h3>D-Bus Server (Linux Desktop Integration)</h3>
       <p>RIGEL's D-Bus server provides system-wide AI assistance with advanced tool capabilities, perfect for Linux desktop integration.</p>
       <pre><code># Using the main launcher (recommended)
