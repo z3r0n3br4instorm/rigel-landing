@@ -217,7 +217,6 @@ body {
   margin: 0 auto;
   cursor: pointer;
   transition: border-color 0.3s ease;
-  overflow-x: auto;
 }
 
 .hero-install-cmd:hover {
@@ -238,6 +237,18 @@ body {
 
 .hero-install-cmd:hover .copy-icon {
   color: var(--text-primary);
+}
+
+.hero-cmd-text {
+  white-space: nowrap;
+  overflow-x: auto;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hero-cmd-text::-webkit-scrollbar {
+  display: none;
 }
 
 /* Section styles */
@@ -346,6 +357,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
   max-width: 800px;
+  width: 100%;
 }
 
 .terminal-header {
@@ -388,7 +400,6 @@ body {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 0.8rem;
   line-height: 2;
-  overflow-x: auto;
 }
 
 .terminal-line {
@@ -403,6 +414,15 @@ body {
 
 .terminal-command {
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow-x: auto;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.terminal-command::-webkit-scrollbar {
+  display: none;
 }
 
 .terminal-comment {
@@ -502,7 +522,7 @@ body {
 /* Status grid */
 .status-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 12px;
 }
 
@@ -610,6 +630,11 @@ body {
     padding: 1.5rem;
   }
 
+  .status-item {
+    padding: 10px 14px;
+    font-size: 0.78rem;
+  }
+
   .nav-link {
     font-size: 0.78rem;
   }
@@ -622,5 +647,48 @@ body {
   .hero-install-cmd {
     font-size: 0.65rem;
     padding: 12px 14px;
+    max-width: 100%;
+  }
+
+  .hero-cmd-text {
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .terminal-command {
+    white-space: normal;
+    word-break: break-all;
+    font-size: 0.65rem;
+  }
+
+  .terminal-body {
+    font-size: 0.65rem;
+    padding: 1rem;
+  }
+
+  .terminal-title {
+    display: none;
+  }
+
+  .terminal-header {
+    padding: 10px 14px;
+  }
+
+  .code-block {
+    font-size: 0.65rem;
+    padding: 1rem;
+  }
+
+  .docs-endpoint {
+    padding: 1rem;
+  }
+
+  .footer {
+    padding: 3rem 1.25rem;
+    text-align: center;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
   }
 }

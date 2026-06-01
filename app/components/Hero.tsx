@@ -56,10 +56,10 @@ export default function Hero() {
           className="hero-install-cmd animate-fade-in-up"
           onClick={handleCopy}
           title="Click to copy"
-          style={{ opacity: 0, animationDelay: "0.6s", animationFillMode: "forwards", background: "var(--bg-primary)", border: "1px solid var(--border)", borderRadius: "6px", padding: "16px 24px", display: "inline-flex", alignItems: "center", gap: "16px" }}
+          style={{ opacity: 0, animationDelay: "0.6s", animationFillMode: "forwards", background: "var(--bg-primary)", border: "1px solid var(--border)", borderRadius: "6px", padding: "16px 24px", display: "inline-flex", alignItems: "center", gap: "16px", maxWidth: "100%" }}
         >
-          <span className="prompt" style={{ color: "var(--accent)" }}>$ </span>
-          <span style={{ flex: 1, textAlign: "left", whiteSpace: "nowrap", fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-primary)" }}>{cmd}</span>
+          <span className="prompt" style={{ color: "var(--accent)", flexShrink: 0 }}>$ </span>
+          <span className="hero-cmd-text" style={{ flex: 1, textAlign: "left", fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-primary)" }}>{cmd}</span>
           <span className="copy-icon" style={{ cursor: "pointer", color: "var(--text-secondary)" }}>
             {copied ? (
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>

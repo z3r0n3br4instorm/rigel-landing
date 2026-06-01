@@ -167,7 +167,7 @@ export default function DocsSection() {
 
         {activeTab === "dbus" && (
           <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-            <div style={{ display: "inline-flex", gap: 20, fontSize: "0.78rem", color: "var(--text-secondary)" }}>
+            <div style={{ display: "inline-flex", gap: 20, fontSize: "0.78rem", color: "var(--text-secondary)", flexWrap: "wrap", justifyContent: "center" }}>
               <span>Service: <code style={{ color: "var(--accent-light)", fontFamily: "var(--font-mono)" }}>com.rigel.RigelService</code></span>
               <span>Path: <code style={{ color: "var(--accent-light)", fontFamily: "var(--font-mono)" }}>/com/rigel/RigelService</code></span>
             </div>

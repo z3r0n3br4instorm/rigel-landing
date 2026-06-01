@@ -42,7 +42,7 @@ export default function InstallSection() {
           </div>
         </div>
 
-        <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", gap: "2rem", fontSize: "0.78rem", color: "var(--text-muted)" }}>
+        <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", gap: "1rem", fontSize: "0.78rem", color: "var(--text-muted)", flexWrap: "wrap", textAlign: "center" }}>
           <span>Requires Python 3.8+</span>
           <span>·</span>
           <span>Docker alternative available</span>
