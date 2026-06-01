@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
-const basePath = "/rigel-landing";
+const basePath = process.env.BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath,
+  ...(basePath ? { basePath } : {}),
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
