@@ -10,6 +10,8 @@ const navLinks = [
   { label: "Docs", href: "/docs" },
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,14 +48,20 @@ export default function Navbar() {
             color: "var(--text-primary)",
           }}
         >
-          <Image src="/zerone-logo.png" alt="Zerone Laboratories" width={150} height={32} style={{ height: 32, width: 'auto' }} />
+          <Image src={`${basePath}/zerone-logo.png`} alt="Zerone Laboratories" width={150} height={32} style={{ height: 32, width: 'auto' }} />
         </a>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="nav-link">
-              {l.label}
-            </a>
+            l.href.startsWith("/") ? (
+              <Link key={l.href} href={l.href} className="nav-link">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.href} href={l.href} className="nav-link">
+                {l.label}
+              </a>
+            )
           ))}
           <a
             href="https://github.com/Zerone-Laboratories/RIGEL"
@@ -104,14 +112,25 @@ export default function Navbar() {
           }}
         >
           {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="nav-link"
-              onClick={() => setMenuOpen(false)}
-            >
-              {l.label}
-            </a>
+            l.href.startsWith("/") ? (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {l.label}
+              </a>
+            )
           ))}
         </div>
       )}

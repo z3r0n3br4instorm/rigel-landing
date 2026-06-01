@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Footer() {
   return (
@@ -41,7 +44,7 @@ export default function Footer() {
                 Resources
               </h4>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <a href="/docs" className="nav-link" style={{ fontSize: "0.8rem" }}>API Reference</a>
+                <Link href="/docs" className="nav-link" style={{ fontSize: "0.8rem" }}>API Reference</Link>
                 <a href="#install" className="nav-link" style={{ fontSize: "0.8rem" }}>Installation</a>
                 <a href="https://github.com/Zerone-Laboratories/RIGEL/issues" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: "0.8rem" }}>Issues</a>
               </div>
@@ -64,7 +67,7 @@ export default function Footer() {
           <span style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} Zerone Laboratories. All rights reserved.
           </span>
-          <Image src="/zerone-logo.png" alt="Zerone Laboratories" width={100} height={20} style={{ height: 20, width: 'auto' }} />
+          <Image src={`${basePath}/zerone-logo.png`} alt="Zerone Laboratories" width={100} height={20} style={{ height: 20, width: 'auto' }} />
         </div>
       </div>
     </footer>
