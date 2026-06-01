@@ -530,15 +530,11 @@ results = db.run_similar_serch("your search query")</code></pre>
   },
   {
     id: "browser-automation",
-    title: "Browser Automation",
+    title: "Browser Automation (Incomplete)",
     html: `
-      <p>RIGEL includes a powerful workflow system to save and replay browser automation tasks. Create a workflow once with the AI agent, then replay it unlimited times headlessly without needing AI processing.</p>
-      <pre><code># Run a task with AI and save as workflow
-./workflow.sh save "YouTube Search" "go to youtube.com and search for AI"
-
-# Replay a saved workflow (no AI needed!)
-./workflow.sh replay "YouTube Search"
-./workflow.sh replay-headless "YouTube Search"</code></pre>
+      <div class="note">
+        This feature and its documentation are currently incomplete and under active development. Please check back later for updates.
+      </div>
     `
   }
 ];
