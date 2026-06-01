@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logoImg from "@/public/zrn-logo.png";
 import { docsNav } from "./docsNav";
 import { docsContent } from "./docsContent";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function DocsPage() {
   const [activeId, setActiveId] = useState("overview");
@@ -28,7 +29,7 @@ export default function DocsPage() {
       <nav className="nav-container" style={{ position: "fixed", top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", color: "var(--text-primary)" }}>
-            <img src={`${basePath}/zrn-logo.png`} alt="Zerone Laboratories" width={120} height={26} style={{ height: 26, width: "auto" }} />
+            <Image src={logoImg} alt="Zerone Laboratories" width={120} style={{ height: 26, width: "auto" }} />
             <span style={{ fontSize: "0.7rem", color: "var(--text-muted)", letterSpacing: "0.08em", marginLeft: 4 }}>Docs</span>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 24 }}>

@@ -1,6 +1,6 @@
 import Link from "next/link";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import Image from "next/image";
+import logoImg from "@/public/zrn-logo.png";
 
 export default function Footer() {
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
           <span style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} Zerone Laboratories. All rights reserved.
           </span>
-          <img src={`${basePath}/zrn-logo.png`} alt="Zerone Laboratories" width={100} height={20} style={{ height: 20, width: "auto" }} />
+          <Image src={logoImg} alt="Zerone Laboratories" width={100} style={{ height: 20, width: "auto" }} />
         </div>
       </div>
     </footer>

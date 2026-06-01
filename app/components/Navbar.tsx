@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logoImg from "@/public/zrn-logo.png";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -9,7 +11,6 @@ const navLinks = [
   { label: "Docs", href: "/docs" },
 ];
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,7 +48,7 @@ export default function Navbar() {
             color: "var(--text-primary)",
           }}
         >
-          <img src={`${basePath}/zrn-logo.png`} alt="Zerone Laboratories" width={150} height={32} style={{ height: 32, width: "auto" }} />
+          <Image src={logoImg} alt="Zerone Laboratories" width={150} style={{ height: 32, width: "auto" }} />
         </a>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">
