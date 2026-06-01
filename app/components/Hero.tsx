@@ -46,7 +46,8 @@ export default function Hero() {
         </h1>
 
         <p className="hero-subtitle animate-fade-in-up" style={{ margin: "1.5rem auto 2.5rem", opacity: 0, animationDelay: "0.4s", animationFillMode: "forwards" }}>
-          Open-source multi-agentic AI engine &amp; virtual assistant framework/toolkit/sdk.
+          Open-source multi-agentic AI engine &amp; virtual assistant<br />
+          framework/toolkit/sdk.
           <br />
           Multi-LLM backends · MCP tools · D-Bus integration · Voice interface
         </p>
