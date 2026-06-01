@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -44,7 +46,7 @@ export default function Navbar() {
             color: "var(--text-primary)",
           }}
         >
-          <img src="/zerone-logo.png" alt="Zerone Laboratories" style={{ height: 32 }} />
+          <Image src="/zerone-logo.png" alt="Zerone Laboratories" width={150} height={32} style={{ height: 32, width: 'auto' }} />
         </a>
 
         <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -62,7 +64,7 @@ export default function Footer() {
           <span style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} Zerone Laboratories. All rights reserved.
           </span>
-          <img src="/zerone-logo.png" alt="Zerone Laboratories" style={{ height: 20 }} />
+          <Image src="/zerone-logo.png" alt="Zerone Laboratories" width={100} height={20} style={{ height: 20, width: 'auto' }} />
         </div>
       </div>
     </footer>
